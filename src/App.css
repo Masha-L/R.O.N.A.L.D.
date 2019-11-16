@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+
+.App-header {
+  z-index: 10;
+  position: absolute;
+  top: 10px;
+  min-height: 100vh;
+  min-width: 200vh;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(40px + 2vmin);
+  font-weight: bold;
+  color: #09d3ac;
+}
+
+.start-button {
+  border: none;
+  background: none;
+  color: #09d3dc;
+  font-size: calc(15px + 2vmin);
+  outline:none;
+  font-weight: 600;
+}
+
+.start-button:active {
+  color: #a903ff;
+}
+.start-button:hover {
+  color: #38bcf0;
+}
+
+.start-button-wrapper {
+  margin-top: 2vmin;
+}
+
+.background {
+    z-index: 0;
+}
