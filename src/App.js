@@ -17,7 +17,7 @@ export class App extends Component {
                     color: { value: "#ffffff" },
                     shape: {
                       type: "circle",
-                      stroke: { width: 0, color: "#000000" },
+                      stroke: { width: 0, color: "#080000" },
                       polygon: { nb_sides: 5 },
                       image: { src: "img/github.svg", width: 200, height: 200 }
                     },
@@ -102,7 +102,7 @@ export class App extends Component {
               <div className="start-button-wrapper">
                 <button className="start-button">
                   <Typist cursor={{ hideWhenDone: true }} >
-                     start >>
+                     start   >>
                   </Typist>
                 </button>
               </div>
