@@ -4,7 +4,6 @@
   min-height: 100vh;
 }
 
-
 .App-header {
   z-index: 10;
   position: absolute;
@@ -33,6 +32,7 @@
 .start-button:active {
   color: #a903ff;
 }
+
 .start-button:hover {
   color: #38bcf0;
 }
@@ -43,4 +43,71 @@
 
 .background {
     z-index: 0;
+}
+
+.instructions {
+  margin: auto;
+    margin-top: 10%;
+  width: 50%;
+  font-size: calc(8px + 2vmin);
+
+}
+
+.rate {
+  margin: auto;
+  margin-top: 5%;
+  width: 50%;
+}
+
+.buttons {
+  margin: auto;
+  margin-top: 5%;
+}
+
+.rating-button {
+  color: white;
+  margin: 2%;
+  font-size: calc(8px + 2vmin);
+  border: hidden;
+  border-radius: 9px;
+  padding: 0.5% 2%;
+  outline: none;
+}
+
+.rating-button:active {
+  background-color: #38bcf0;
+}
+
+.rating-button:hover {
+  background-color: #9b20ff;
+}
+
+.submit-button {
+  background-color: #a834e2;
+}
+
+.cancel-button {
+  background-color: #ff0396;
+}
+
+
+.results {
+  text-align: center;
+  width: 50%;
+  height: 700px;
+  overflow-y: scroll;
+  margin: auto;
+}
+
+.book {
+  max-height: 100px;
+  margin:3%;
+  padding:2% 5% 4%;
+  background-color: antiquewhite;
+  color: darkslategray;
+  border-radius: 14px;
+}
+
+.title {
+  font-weight: 600;
 }
