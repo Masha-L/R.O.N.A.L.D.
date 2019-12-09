@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
 import Typist from 'react-typist';
+import {Loading} from './Loading.js';
+
+
 
 export class Landing extends Component {
   render() {
@@ -98,17 +101,29 @@ export class Landing extends Component {
               <Typist.Backspace count={8} delay={300} />
               <span> . </span>       
             </Typist>
-            <div className="start-button-wrapper">
-                <button className="start-button" onClick={this.props.onClick}>
-                  <Typist cursor={{ hideWhenDone: true }} >
-                     start   >>
-                  </Typist>
-                </button>
-              </div>
+            {this.enableStart()}
           </div>
         </header>
       </div>
     );
+  }
+  enableStart = () => {
+    if(this.props.docs.length > 0) {
+      return (
+        <div className="start-button-wrapper">
+        <button className="start-button" onClick={this.props.onClick}>
+          <Typist cursor={{ hideWhenDone: true }} >
+            start   >>
+          </Typist>
+        </button>
+      </div>
+      );
+    }
+    else {
+      return (
+        <Loading loadingText={"We are getting some books for you to rate, it'll be just a second"}/>
+      );
+    }
   }
 }
 

@@ -1,0 +1,25 @@
+{
+  "name": "ronald",
+  "version": "0.1.0",
+  "description": "Guestbook example app that runs on Google AppEngine Python backend with React frontend",
+  "main": "index.js",
+  "appEngine": {
+    "project": "ran-frame",
+    "version": "4"
+  },
+  "scripts": {
+    "build": "cd client && npm run build && cd .. && node scripts/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "node scripts/deploy.js",
+    "dev:appengine": "python2 '/Users/Mashka/google-cloud-sdk/bin/dev_appserver.py' server",
+    "dev:webpack": "cd client && npm start",
+    "dev": "concurrently --kill-others --names \"appengine,webpack\" --prefix \"[{name}]\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run dev:appengine\" \"npm run dev:webpack\""
+  },
+  "keywords": [
+    "appengine",
+    "react",
+    "book-recommender"
+  ],
+  "author": "ido.ran@gmail.com",
+  "devDependencies": {}
+}

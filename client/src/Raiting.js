@@ -16,7 +16,8 @@ export class Raiting extends Component {
       score: 5,
       option_id: 0,
       title: props.docs[0].title,
-      description: props.docs[0].description
+      description: props.docs[0].description,
+      numRated: 0,
     };
   }
 
@@ -24,7 +25,7 @@ render() {
   return (
     <div className="rate"> 
       <p>{this.state.title}</p>
-      <p> {this.state.description}</p>
+      <p className="description"> {this.state.description}</p>
 
       <SliderWithTooltip
           defaultValue={5}
@@ -47,6 +48,7 @@ render() {
       <div className={"buttons"}>
         <button className={"submit-button rating-button"} onClick={() => {
             if(this.updateInfo()) {
+              this.setState({numRated:this.state.numRated+1});
               this.props.save(this.state.title, this.state.description, this.state.score);
             }
           }}>
@@ -77,7 +79,7 @@ render() {
   }
 
   updateInfo = () => {
-    if (this.state.option_id + 1 >= this.props.docs.length) {
+    if (this.state.option_id + 1 >= this.props.docs.length || this.state.numRated >= 10) {
       this.props.onDone();
       return false;
     }

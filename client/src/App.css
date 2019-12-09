@@ -20,6 +20,21 @@
   color: #09d3ac;
 }
 
+
+.loading {
+  font-size: calc(10px + 2vmin);
+  width: 50%;
+  margin: auto;
+}
+
+.loading-text {
+  margin-top: 70px;
+}
+
+.fun-facts {
+  font-size: calc(5px + 2vmin);
+}
+
 .start-button {
   border: none;
   background: none;
@@ -101,6 +116,7 @@
 
 .book {
   max-height: 100px;
+  overflow-y: scroll;
   margin:3%;
   padding:2% 5% 4%;
   background-color: antiquewhite;
@@ -108,6 +124,11 @@
   border-radius: 14px;
 }
 
+.description {
+  min-height: 180px;
+  max-height: 180px;
+  overflow-y: scroll;
+}
 .title {
   font-weight: 600;
 }
