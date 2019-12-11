@@ -17,6 +17,7 @@ export class Raiting extends Component {
       option_id: 0,
       title: props.docs[0].title,
       description: props.docs[0].description,
+      category: props.docs[0].category,
       numRated: 0,
     };
   }
@@ -48,8 +49,8 @@ render() {
       <div className={"buttons"}>
         <button className={"submit-button rating-button"} onClick={() => {
             if(this.updateInfo()) {
+              this.props.save(this.state.title, this.state.description, this.state.score, this.state.category);
               this.setState({numRated:this.state.numRated+1});
-              this.props.save(this.state.title, this.state.description, this.state.score);
             }
           }}>
           Submit
@@ -86,11 +87,13 @@ render() {
     else {
       const newTitle = this.props.docs[this.state.option_id + 1].title;
       const newDescription = this.props.docs[this.state.option_id + 1].description;
+      const newCat = this.props.docs[this.state.option_id + 1].category;
     this.setState({
       option_id: this.state.option_id + 1,
       score: this.state.score,
       title: newTitle,
-      description: newDescription
+      description: newDescription,
+      category: newCat
     });
     return true;
     }

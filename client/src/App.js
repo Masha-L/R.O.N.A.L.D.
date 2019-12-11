@@ -23,6 +23,7 @@ export class App extends Component {
       let contentType = response.headers.get("content-type");
       if (contentType && contentType.indexOf("application/json") !== -1) {
         const json = await response.json();
+        console.log(json)
         this.setState({ docs: json });
       }
       else {
