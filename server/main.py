@@ -30,6 +30,9 @@ def recommendations():
 
 def getSomeFancyBooks(docs):
     docs.sort(key=rating, reverse=True)
+    titles = []
+    for d in docs:
+        titles.append(d[0][0])
     # get best ranking categories
     ranked_cats = getRankedCategories(docs)
     # create tf for the queries
@@ -46,7 +49,6 @@ def getSomeFancyBooks(docs):
         +"""%\") LIMIT 10000""")
     # get results and put them to have normal-ish format
     results = query_job.result() # Waits for job to complete.
-    
     books = {}
     tf_in_docs = {}
     collection_word_len = 0;
@@ -77,13 +79,10 @@ def getSomeFancyBooks(docs):
                 idf = math.log(collection_docs/df)
                 norm_tf = tfq * (tfd/(tfd + (2*book_info[3]/avg_doc_len))) *idf
                 score += norm_tf
-        recs.append([title, book_info[1], score])
+        if title not in titles:
+            recs.append([title, book_info[1], score])
 
     recs.sort(key=rating, reverse=True)
-
-
-
-
 
     recs = recs[:10]
 
@@ -125,10 +124,9 @@ def getFancyTF(docs):
         for word in clean_query:
             if word not in stop_words_list:
                 if word in tf:
-                    tf[word]+=rating(d)
+                    tf[word]+=(rating(d)-5)
                 else:
-                    tf[word] = rating(d)
-
+                    tf[word] = (rating(d)-5)
     return tf
 
 def dictToSortedList(dict, sort_key):
